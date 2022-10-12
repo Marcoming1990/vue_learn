@@ -1,3 +1,12 @@
+代码补全
+div +tab = <div></div>
+div#root = <div id="root"></div>
+
+Shift+Alt+↓/↑：向上/向下复制行
+
+
+
+
 Ctrl+Shift+P，F1：显示命令面板
 
 Ctrl+P：快速打开
@@ -11,8 +20,6 @@ Ctrl+X：剪切行
 Ctrl+C：复制行
 
 ALT+↑/↓：上下移动
-
-Shift+Alt+↓/↑：向上/向下复制行
 
 Ctrl+Shift+K：删除行
 

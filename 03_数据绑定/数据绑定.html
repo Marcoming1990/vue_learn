@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>初识Vue</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <!--准备好一个容器-->
+    <div id="root">
+        <!--数据变页面变，页面变数据不变-->
+        单向数据绑定：<input type="text" v-bind:value="name"><br>
+        <!--数据变页面变，页面变数据也变-->
+        双向数据绑定：<input type="text" v-model:value="name">
+
+        <!--简写
+        单向数据绑定：<input type="text" :value="name"><br>
+        双向数据绑定：<input type="text" v-model="name">
+        -->
+
+        <h2 v-bind:x="name">我好啊</h2>
+        <!--如下代码是错误的，因为v-model只能应用在表单类元素（输入类元素，如input 单选 多选..有value的）-->
+        <h2 v-model:x="name">你好啊</h2>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false // 阻止vue在启动时生成生产提示
+
+        // 创建Vue实例
+        new Vue({
+            el:'#root', 
+            data:{  
+                name:'jack',
+            }
+        })
+    </script>
+</body>
+</html>

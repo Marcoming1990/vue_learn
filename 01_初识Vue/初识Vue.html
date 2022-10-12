@@ -7,8 +7,26 @@
     <script type="text/javascript" src="../js/vue.js"></script>
 </head>
 <body>
+    <!--准备好一个容器-->
+    <div id="root">
+        <h1>Hello, {{name}}!</h1>
+        <!-- 
+            1、{{xxx}}中的xxx要写js表达式（例如:name.toUpperCase()），且xxx可以自动读取data中的所有属性
+            2、一旦data中的数据发生改变，那么页面中用到该数据的地方也会自动更新
+        -->
+    </div>
     <script type="text/javascript">
         Vue.config.productionTip = false // 阻止vue在启动时生成生产提示
+
+        // 创建Vue实例
+        new Vue({
+            el:'#root', //用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串
+            data:{  //data中用于存储数据，数据供el所指的容器使用，值我们暂时先写成一个对象
+                name:'abc'
+            }
+        })
+
+        // 容器跟Vue是11对应，不能1对多 或 多对1
     </script>
 </body>
 </html>
