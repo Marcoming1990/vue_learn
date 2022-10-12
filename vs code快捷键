@@ -1,11 +1,37 @@
+【常用快捷键】
 代码补全
 div +tab = <div></div>
 div#root = <div id="root"></div>
 
 Shift+Alt+↓/↑：向上/向下复制行
+Ctrl+Shift+K：删除行
 
 
 
+【其他设置】
+1、代码自动换行：
+    设置 - User - Edit: Word Wrap - on
+
+2、轻服务器：
+    左边插件点开 - 搜索 live server - 安装 - 重启VScode - 插件区找到live server 的设置按钮 - Live Server › Settings: Custom Browser
+
+3、代码片段：
+    设置 - 配置用户代码片段 - 最下面大括号前添加下面代码 - 右键格式化文档 - 以后敲代码v1即可出现下面代码片段（辅助生成下面代码网址：https://snippet-generator.app/）
+    "v1": {
+		"prefix": "v1",
+		"body": [
+			"new Vue({",
+			"    el:'#root', ",
+			"    data:{  ",
+			"        ",
+			"    }",
+			"})"
+		],
+		"description": "v1"
+	}
+
+
+【不常用快捷键】
 
 Ctrl+Shift+P，F1：显示命令面板
 
@@ -21,7 +47,7 @@ Ctrl+C：复制行
 
 ALT+↑/↓：上下移动
 
-Ctrl+Shift+K：删除行
+
 
 Ctrl+Enter：在下面插入行
 
