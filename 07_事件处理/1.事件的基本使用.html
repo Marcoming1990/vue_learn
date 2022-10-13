@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件的基本使用</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <!--准备好一个容器-->
+    <div id="root">
+        <h2>欢迎来到{{name}}学习</h2>
+        <!-- <button v-on:click="showInfo1">点我提示信息</button> -->
+        <!-- 另一种写法，不传参数可以不写() -->
+        <button @click="showInfo1">点我提示信息1（不传参）</button>
+        <!-- 传递参数66，$event占位传递event -->
+        <button @click="showInfo2($event,66)">点我提示信息2（传参）</button>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false // 阻止vue在启动时生成生产提示
+
+        //创建Vue实例
+        new Vue({
+            el:'#root', 
+            data:{  
+                name:'清华',
+            },
+            methods:{
+                showInfo1(event){ //可以简写成showInfo1()，一样有event
+                    console.log(event.target.innerText)
+                    alert('同学你好1')
+                },
+                showInfo2(event,number){ //位置要跟($event,66)对应
+                    console.log(event,number)
+                    alert('同学你好2')
+                }
+            }
+            
+        })
+       
+    </script>
+</body>
+</html>

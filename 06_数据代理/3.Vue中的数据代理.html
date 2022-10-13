@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue中的数据代理</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <!--准备好一个容器-->
+    <div id="root">
+        <h2>学校名称：{{name}}</h2>
+        <h2>学校地址：{{address}}</h2>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false // 阻止vue在启动时生成生产提示
+
+        //创建Vue实例
+        const vm = new Vue({
+            el:'#root', 
+            data:{  
+                name:'清华',
+                address:'北京市'
+            }
+        })
+        /*
+            自己总结：
+            1、创建Vue实例时候，Vue第一件事把代码中的数据data收集到_data中保存起来（此时代码{{_data.name}}是可以获取数据的），接着第二件事通过数据代理Object.defineProperty创建了Vue的属性name（此时代码{{name}}才可获取数据），因为数据代理，vm.name修改会通过代理name的setter同步修改_data.name。
+            2、好处就是代码可以直接使用{{name}}。
+            3、其实_data除了收集了数据还做了其他事情，例如监听属性变化，变化时同步到页面{{name}}中。
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件修饰符</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        *{
+            /* 通配符，所有元素之间间隔20像素 */
+            margin-top: 20px;   
+        }
+        .demo1{
+            height: 50px;
+            background-color: skyblue;
+        }
+        .box1{
+            padding: 5px;
+            background-color: skyblue;
+        }
+        .box2{
+            padding: 5px;
+            background-color: orange;
+        }
+        .list{
+            width: 200px;
+            height: 200px;
+            background-color: peru;
+            overflow: auto;
+        }
+        li{
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        Vue中的事件修饰符：
+        1、prevent：阻止默认事件（常用）；
+        2、stop：阻止事件冒泡（常用）；
+        3、once：事件只触发一次（常用）；
+        4、capture:使用事件的捕获模式；
+        5、self：只有event.target是当前操作的元素时才触发事件；
+        6、passive：事件的默认行为立即执行，无需等待事件回调执行完毕；
+     -->
+    <!--准备好一个容器-->
+    <div id="root">
+        <h2>欢迎来到{{name}}学习</h2>
+        <!-- 阻止默认事件（常用）这里是a标签不跳转了 -->
+        <a href="http://www.baidu.com" @click.prevent="showInfo">点我提示信息</a>
+        
+        <!-- 阻止事件冒泡（常用）这里只弹了一次窗口 click只触发1次 -->
+        <div class="demo1" @click="showInfo">
+            <button @click.stop="showInfo">点我提示信息</button>
+            <!-- 修饰符可以连续写@click.stop.prevent -->
+            <a href="http://www.baidu.com" @click.stop.prevent="showInfo">点我提示信息</button>
+        </div>
+
+        <!-- 事件只触发一次（常用）这里只有第一次点击生效 -->
+        <button @click.once="showInfo">点我提示信息</button>
+
+        <!-- 使用事件的捕获模式 -->
+        <div class="box1" @click.capture="showMsg(1)">
+            <!-- 不加capture是冒泡模式由里到外执行，打印2 1 -->
+            <!-- 加了capture是捕获模式由外到内执行，打印1 2 -->
+            div1
+            <div class="box2" @click="showMsg(2)">
+                div2
+            </div>
+        </div>
+
+        <!-- 只有event.target是当前操作的元素时才触发事件 -->
+        <div class="demo1" @click.self="showInfo">
+            <!-- 因为点击的是button，两次触发alert都是button元素(e.target) -->
+            <!-- 加.self代表触发对象是div才会showInfo，所以最后只alert1次（div的不触发） -->
+            <button @click="showInfo">点我提示信息</button>
+        </div>
+
+        <!-- 事件的默认行为立即执行，无需等待事件回调执行完毕 -->
+        <!-- 滚动条发生上下移动 -->
+        <!-- <ul @scroll="demo" class="list"> -->
+        <!-- 滚轮发生上下移动 -->
+        <ul @wheel.passive="demo" class="list">
+            <!-- 不加passive会执行回调demo（很久）完了才滚动进度条 -->
+            <!-- 加passive会立即执行滚动进度条，同时执行for -->
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false // 阻止vue在启动时生成生产提示
+
+        //创建Vue实例
+        new Vue({
+            el:'#root', 
+            data:{  
+                name:'清华',
+            },
+            methods:{
+                showInfo(e){
+                    alert('同学你好')
+                    // console.log(e.target)
+                },
+                showMsg(msg){
+                    console.log(msg)
+                },
+                demo(){
+                    // console.log('@')
+                    for(let i=0; i<100000; i++){
+                        console.log('#')
+                    }
+                    console.log('累坏了')
+                }
+            }
+        })
+       
+    </script>
+</body>
+</html>
