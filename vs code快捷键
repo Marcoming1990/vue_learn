@@ -12,7 +12,7 @@ Ctrl+Shift+K：删除行
 1、代码自动换行：
     设置 - User - Edit: Word Wrap - on
 
-2、轻服务器：
+2、轻服务器（插件）：
     左边插件点开 - 搜索 live server - 安装 - 重启VScode - 插件区找到live server 的设置按钮 - Live Server › Settings: Custom Browser
 
 3、代码片段：
@@ -30,6 +30,10 @@ Ctrl+Shift+K：删除行
 		"description": "v1"
 	}
 
+4、Vue 3 Snippets（插件）：
+	Vue代码片段（补全），作者：hollowtree
+
+	
 
 【不常用快捷键】
 
