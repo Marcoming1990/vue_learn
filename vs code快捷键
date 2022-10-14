@@ -5,6 +5,8 @@ div#root = <div id="root"></div>
 
 Shift+Alt+↓/↑：向上/向下复制行
 Ctrl+Shift+K：删除行
+ALT+↑/↓：上下移动
+Ctrl+Enter：在下面插入行
 
 
 
@@ -44,16 +46,6 @@ Ctrl+P：快速打开
 Ctrl+Shift+N：新窗口/实例
 
 Ctrl+Shift+W：关闭窗口/实例
-
-Ctrl+X：剪切行
-
-Ctrl+C：复制行
-
-ALT+↑/↓：上下移动
-
-
-
-Ctrl+Enter：在下面插入行
 
 Ctrl+Shift+Enter：在上面插入行
 

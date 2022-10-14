@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>条件渲染</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!--准备好一个容器-->
+    <div id="root">
+        <!-- 使用v-show做条件渲染（页面代码存在，只是不显示） -->
+        <!-- <h2 v-show="false">欢迎来到{{name}}</h2>
+        <h2 v-show="1 === 1">欢迎来到{{name}}</h2> -->
+
+        <!-- 使用v-if做条件渲染（页面代码不存在） -->
+        <!-- <h2 v-if="false">欢迎来到{{name}}</h2>
+        <h2 v-if="1 === 1">欢迎来到{{name}}</h2> -->
+
+        <!-- 使用频率高的用v-show，效率 -->
+        <h2>当前的n值是：{{n}}</h2>
+        <button @click="n++">点我n+1</button><br>
+
+        <div v-show="n === 1">n=1展示</div>
+        <div v-show="n === 2">n=2展示</div>
+        <div v-show="n === 3">n=3展示</div>
+
+        ------------第一分割线-----------
+        <!-- v-else和v-else-if -->
+        <div v-if="n === 1">n=1展示</div>
+        <div v-else-if="n === 2">n=2展示</div>
+        <!-- v-if中间不能被打断，会报错，如下： -->
+        <!-- <div>@</div> -->
+        <div v-else-if="n === 3">n=3展示</div>
+        <div v-else>哈哈</div>
+        
+        ------------第二分割线-----------
+        <!-- template不影响节点（代码）结构，但只能配合v-if使用 -->
+       <template v-if="n === 1">
+            <h2>你好</h2>
+            <h2>靓仔</h2>
+       </template>
+
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        
+        const vm = new Vue({
+            el:'#root', 
+            data:{  
+                name:'清华小学',
+                n:0
+            }
+        })
+    </script>
+</body>
+
+</html>
