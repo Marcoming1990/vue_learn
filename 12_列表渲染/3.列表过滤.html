@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>列表过滤</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!--准备好一个容器-->
+    <div id="root">
+        <h2>人员列表</h2>
+        <input type="text" placeholder="请输入名字" v-model="keyWord">
+        <ul>
+            <li v-for="(p,index) in filPersons" :key="index">
+                {{p.name}}-{{p.age}}-{{p.sex}}
+            </li>
+        </ul>
+
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        
+        const vm = new Vue({
+            el:'#root', 
+            data:{  
+                keyWord:'',
+                persons:[
+                    {id:'001',name:'马冬梅',age:18,sex:'女'},
+                    {id:'002',name:'周冬雨',age:19,sex:'女'},
+                    {id:'003',name:'周杰伦',age:20,sex:'男'},
+                    {id:'004',name:'温兆伦',age:21,sex:'男'}
+                ],
+                //filPersons:[]
+            },
+            //用watch实现
+            // watch:{
+            //     keyWord:{
+            //         immediate:true, //空串也indexOf字符串当中，立即执行相当于搜了一次空串，结果是全部名字都符合
+            //         handler(val){
+            //             this.filPersons = this.persons.filter((p)=>{
+            //                 return p.name.indexOf(val) !== -1
+            //             })
+            //         }
+            //     }
+            // }
+            
+            //用computed实现（能用computed的优先用）
+            computed:{
+                filPersons(){
+                    return this.persons.filter((p)=>{
+                        return p.name.indexOf(this.keyWord) !== -1
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
