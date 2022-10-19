@@ -3,6 +3,7 @@
 div +tab = <div></div>
 div#root = <div id="root"></div>
 
+ctrl+`:调试终端
 Shift+Alt+↓/↑：向上/向下复制行
 Ctrl+Shift+K：删除行
 ALT+↑/↓：上下移动
@@ -35,7 +36,9 @@ Ctrl+Enter：在下面插入行
 4、Vue 3 Snippets（插件）：
 	Vue代码片段（补全），作者：hollowtree
 
-	
+5、Vetur（插件）：
+	vue文件代码补全，作者：Pine Wu
+
 
 【不常用快捷键】
 
