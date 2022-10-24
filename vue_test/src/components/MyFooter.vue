@@ -14,8 +14,12 @@
 <script>
     export default {
         name:'MyFooter',
-        doneTotal:0,
-        total:0,
+        data(){
+            return {
+                doneTotal:0,
+                total:0,
+            }
+        }
     }
 </script>
 

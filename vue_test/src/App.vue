@@ -1,7 +1,7 @@
 <template>
     <div id="root">
         <div class="todo-container">
-            <div class= " todo-wrap" >
+            <div class= "todo-wrap" >
                 <MyHeader/>
                 <MyList/>
                 <MyFooter/>
